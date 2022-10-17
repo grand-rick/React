@@ -1,13 +1,20 @@
+<!-- index.html -->
 <!DOCTYPE html><html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
       href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500|Roboto:300,400,500&display=swap"
       rel="stylesheet"
     />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+
+    <title>30 Days Of React App</title>
     <style>
-      /* == General style === */
+        /* == General style === */
       * {
         box-sizing: border-box;
         padding: 0;
@@ -85,21 +92,9 @@
         line-height: 60px;
       }
     </style>
-    <title>30 Days Of React Challenge</title>
   </head>
-
   <body>
-    <div class="root"></div>
-
-    <script
-      crossorigin
-      src="https://unpkg.com/react@16/umd/react.development.js"
-    ></script>
-    <script
-      crossorigin
-      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
-    ></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script type="text/babel" src="babel.js"></script>
+    <div id="root"></div>
+    <script type="module" src="index.js"></script>
   </body>
 </html>
