@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <title>React App</title>
+    <style>
+      :root {
+        font-size: 62.5%;
+        --background: #E2E2E2;
+      }
+
+      body {
+        background-color: var(--background);
+        font-size: 2rem;
+        text-align: center;
+
+      }
+      .main-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: .5rem;
+        height: 50vh;
+      }
+      .main-wrapper * {
+        height: 90%;
+        padding: 0.5rem;
+        margin-bottom: .1rem;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <script type="module" src="../src/index.js"></script>
+  </body>
+</html>
