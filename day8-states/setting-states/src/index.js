@@ -3,7 +3,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import asabenehImage from './images/asabeneh.png'
 
-// Function to show month date year
+// Fuction to show month date year
 
 const showDate = (time) => {
   const months = [
@@ -60,8 +60,7 @@ const buttonStyles = {
 // class based component
 class Header extends React.Component {
   constructor(props) {
-    super(props);
-    this.props = props;
+    super(props)
     // the code inside the constructor run before any other code
   }
   render() {
@@ -104,8 +103,7 @@ const Count = ({ count, addOne, minusOne }) => (
 // class base component
 class TechList extends React.Component {
   constructor(props) {
-    super(props);
-    this.props = props;
+    super(props)
   }
   render() {
     const { techs } = this.props
@@ -118,8 +116,7 @@ class TechList extends React.Component {
 // Class Component
 class Main extends React.Component {
   constructor(props) {
-    super(props);
-    this.props = props;
+    super(props)
   }
   render() {
     const {
@@ -162,8 +159,7 @@ class Main extends React.Component {
 // Class component
 class Footer extends React.Component {
   constructor(props) {
-    super(props);
-    this.props = props;
+    super(props)
   }
   render() {
     return (
@@ -179,31 +175,8 @@ class Footer extends React.Component {
 class App extends React.Component {
   state = {
     count: 0,
-    styles: {
-      backgroundColor: '',
-      color: '',
-    },
-  }
-  showDate = (time) => {
-    const months = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
-    ]
-
-    const month = months[time.getMonth()].slice(0, 3)
-    const year = time.getFullYear()
-    const date = time.getDate()
-    return ` ${month} ${date}, ${year}`
+    backgroundColor: '',
+    color: '',
   }
   addOne = () => {
     this.setState({ count: this.state.count + 1 })
@@ -214,13 +187,16 @@ class App extends React.Component {
     this.setState({ count: this.state.count - 1 })
   }
   handleTime = () => {
-    alert(this.showDate(new Date()))
+    alert(showDate(new Date()))
   }
   greetPeople = () => {
     alert('Welcome to 30 Days Of React Challenge, 2020')
   }
-  changeBackground = () => {}
+  changeBackground = () => {
+    this.setState({backgroundColor: '' ? '#ff0000' : ''});
+  }
   render() {
+    const date = new Date()
     const data = {
       welcome: 'Welcome to 30 Days Of React',
       title: 'Getting Started React',
@@ -229,10 +205,9 @@ class App extends React.Component {
         firstName: 'Asabeneh',
         lastName: 'Yetayeh',
       },
-      date: new Date(),
+      date: date,
     }
     const techs = ['HTML', 'CSS', 'JavaScript']
-    const date = new Date()
     // copying the author from data object to user variable using spread operator
     const user = { ...data.author, image: asabenehImage }
 
@@ -257,91 +232,4 @@ class App extends React.Component {
 }
 
 const rootElement = document.getElementById('root')
-ReactDOM.render(<App />, rootElement)// // index.js
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// // import asabenehImage from './images/asabeneh.png'
-
-// const showDate = (time) => {
-//   const months = [
-//     'January',
-//     'February',
-//     'March',
-//     'April',
-//     'May',
-//     'June',
-//     'July',
-//     'August',
-//     'September',
-//     'October',
-//     'November',
-//     'December',
-//   ]
-
-//   const month = months[time.getMonth()].slice(0, 3)
-//   const year = time.getFullYear()
-//   const date = time.getDate()
-//   return ` ${month} ${date}, ${year}`
-// }
-
-// // Header component
-// class Header extends React.Component {
-//   constructor (props) {
-//     super(props);
-//     this.props = props;
-//   }
-
-//   render () {
-//     const {
-//       data: {
-//         welcome,
-//         title,
-//         subtitle,
-//         author: {firstName, lastName},
-//         date
-//       }
-//     } = this.props;
-//     return (
-//       <header>
-//         <div className='header-wrapper'>
-//           <h1>{welcome}</h1>
-//           <h2>{title}</h2>
-//           <h3>{subtitle}</h3>
-//           <p>{firstName} {lastName}</p>
-//           <small>{showDate(date)}</small>
-//         </div>
-//       </header>
-//     )
-//   }
-// }
-
-
-
-// // Parent Component, App
-// class App extends React.Component {
-//   constructor (props) {
-//     super(props);
-//   }
-//   render () {
-//     const data = {
-//       welcome: 'Welcome to 30 days of React',
-//       title: 'Getting started with React',
-//       subtitle: 'JavaScript Library',
-//       author: {
-//         firstName: 'Asabeneh',
-//         lastName: 'Yetayeh'
-//       },
-//       date: new Date()
-//     }
-
-
-//     return (
-//       <Header data={data}/>
-//       // <Main/>
-//       // <Footer/>
-//     )
-//   }
-// }
-
-// const rootElement = document.getElementById('root');
-// ReactDOM.render(<App/>, rootElement);
+ReactDOM.render(<App />, rootElement)
