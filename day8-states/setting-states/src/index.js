@@ -204,7 +204,6 @@ class App extends React.Component {
     const year = time.getFullYear()
     const date = time.getDate()
     return ` ${month} ${date}, ${year}`
->>>>>>> 9b39cc94cd2bb27ee082fe38c7c615acbecb28ae
   }
   addOne = () => {
     this.setState({ count: this.state.count + 1 })
