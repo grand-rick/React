@@ -1,9 +1,8 @@
 // index.js
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Student from './temp'
 // To get the root element from the HTML document
-import salute from './img/salute.png'
+// import salute from './img/salute.png'
 // JSX element, header
 const welcome = 'Welcome to 30 Days Of React'
 const title = 'Getting Started React'
@@ -15,9 +14,9 @@ const author = {
 const date = 'Oct 2, 2020'
 
 // Importing and using my own custom module
-const student1 = new Student("John", 36);
-console.log(student1);
-console.log(student1.summary);
+// const student1 = new Student("John", 36);
+// console.log(student1);
+// console.log(student1.summary);
 
 // JSX element, header
 const header = (
@@ -59,7 +58,7 @@ const techsFormatted = techs.map((tech) => <li>{tech}</li>)
 
 const user = (
   <div>
-    <img src={salute} alt="software developer"/>
+    {/* <img src={salute} alt="software developer"/> */}
   </div>
 )
 
