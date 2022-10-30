@@ -25,38 +25,42 @@ const showDate = (time) => {
     return ` ${month} ${date}, ${year}`
   }
 
-//   const currentSeason = (time) => {
-//         const months = [
-//           'January',
-//           'February',
-//           'March',
-//           'April',
-//           'May',
-//           'June',
-//           'July',
-//           'August',
-//           'September',
-//           'October',
-//           'November',
-//           'December',
-//         ]
+  const currentSeason = (time) => {
+        const months = [
+          'January',
+          'February',
+          'March',
+          'April',
+          'May',
+          'June',
+          'July',
+          'August',
+          'September',
+          'October',
+          'November',
+          'December',
+        ]
 
-//         const monthsFormatted = months.map(month => month.slice(0, 3));
+        const getMonth = months[time.getMonth()].slice(0, 3);
 
-//         const autumnMonths = monthsFormatted.slice(8, 11);
-//         const winterMonths = monthsFormatted.slice(-1, 2);
-//         const springMonths = monthsFormatted.slice(2, 5);
-//         const summerMonths = monthsFormatted.slice(5, 8);
+        const allSeasons = [
+            { name: 'Autumn', months: ['Sep', 'Oct', 'Nov'], startDate: 23, endDate: 21 },
+            { name: 'Winter', months: ['Dec', 'Jan', 'Feb'], startDate: 404, endDate: 404 },
+            { name: 'Spring', months: ['Mar', 'Apr', 'May'], startDate: 404, endDate: 404 },
+            { name: 'Summer', months: ['Jun', 'Jul', 'Aug'], startDate: 404, endDate: 404 },
+        ]
 
-//         const getMonth = time.slice(0, 3);
-//         const getDate = time.slice(4, 6);
+        let seasonName = '';
+        for (let season of allSeasons) {
+            const isSeason = (season.months.map(month => month === getMonth)) ? true : false;
+            if (isSeason) {
+                seasonName = season.name;
+                break;
+            }
+        }
 
-//         console.log(autumnMonths);
-//         console.log(winterMonths);
-//         console.log(springMonths);
-//         console.log(summerMonths);
-
-//   }
+        return seasonName;
+  }
 
 // Button component
 class Button extends React.Component {
@@ -108,7 +112,7 @@ class Header extends React.Component {
         const {
             data: {
                 seasons,
-                welcome
+                welcome,
             }
         } = this.props;
 
@@ -143,11 +147,17 @@ class Main extends React.Component {
             },
             date
         } = this.props;
+
+        // const season = currentSeason(date);
+
+        // if (season === 'Autumn') {
+        //     autumn();
+        // }
         return (
             <main>
                 <div className='main-wrapper'>
-                    <p>The date today is {date}</p>
-                    <h2>{ }</h2>
+                    <p>The date today is {showDate(date)}</p>
+                    <p>Therefore the current season is: <b>{currentSeason(date)}</b></p>
                     <Button text={"autumn"} onClick={autumn} styles={autumnStyles}/>
                     <Button text={"winter"} onClick={winter} styles={winterStyles}/>
                     <Button text={"spring"} onClick={spring} styles={springStyles}/>
@@ -210,7 +220,7 @@ class App extends React.Component {
     render () {
         const data = {
             seasons: ['Autumn', 'Winter', 'Spring', 'Summer'],
-            welcome: 'Season Change Simulator'
+            welcome: 'Season Change Simulator',
         }
         const seasonFunctions = {
             autumn: this.autumn,
@@ -222,7 +232,7 @@ class App extends React.Component {
         return (
             <div className='app' style={{backgroundColor: bgColor, height: '100vh'}}>
                 <Header data={data}/>
-                <Main seasons={seasonFunctions} date={showDate(new Date())}/>
+                <Main seasons={seasonFunctions} date={new Date()}/>
             </div>
         )
     }
