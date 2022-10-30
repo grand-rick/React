@@ -147,12 +147,6 @@ class Main extends React.Component {
             },
             date
         } = this.props;
-
-        // const season = currentSeason(date);
-
-        // if (season === 'Autumn') {
-        //     autumn();
-        // }
         return (
             <main>
                 <div className='main-wrapper'>
