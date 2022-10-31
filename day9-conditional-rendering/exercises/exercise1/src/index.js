@@ -165,11 +165,12 @@ class Main extends React.Component {
 // App, Parent component
 class App extends React.Component {
     state = {
-        autumn: false,
-        winter: false,
-        spring: false,
-        summer: false,
-        bgColor: '#E0EAFC'
+        autumn: false, // 0
+        winter: false, // 0
+        spring: false, // 0
+        summer: false, // 0
+        bgColor: '#E0EAFC',
+        season : 0
     }
 
     autumn = () => {
@@ -223,6 +224,19 @@ class App extends React.Component {
             summer: this.summer
         }
         const bgColor = this.state.bgColor;
+
+        // let seasonName = currentSeason(new Date());
+
+        // if (seasonName === 'Autumn') {
+        //     seasonFunctions.autumn();
+        // } else if (seasonName === 'Winter') {
+        //     seasonFunctions.winter();
+        // } else if (seasonName === 'Spring') {
+        //     seasonFunctions.spring();
+        // } else if (seasonName === 'Summer') {
+        //     seasonFunctions.summer();
+        // }
+
         return (
             <div className='app' style={{backgroundColor: bgColor, height: '100vh'}}>
                 <Header data={data}/>
