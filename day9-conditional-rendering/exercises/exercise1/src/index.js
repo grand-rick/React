@@ -5,72 +5,72 @@ import ReactDOM from 'react-dom';
 // Function to show month date year
 const showDate = (time) => {
     const months = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December',
     ]
-  
+
     const month = months[time.getMonth()].slice(0, 3)
     const year = time.getFullYear()
     const date = time.getDate()
     return ` ${month} ${date}, ${year}`
-  }
+}
 
-  const currentSeason = (time) => {
-        const months = [
-          'January',
-          'February',
-          'March',
-          'April',
-          'May',
-          'June',
-          'July',
-          'August',
-          'September',
-          'October',
-          'November',
-          'December',
-        ]
+const currentSeason = (time) => {
+    const months = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December',
+    ]
 
-        const getMonth = months[time.getMonth()].slice(0, 3);
+    const getMonth = months[time.getMonth()].slice(0, 3);
 
-        const allSeasons = [
-            { name: 'Autumn', months: ['Sep', 'Oct', 'Nov'], startDate: 23, endDate: 21 },
-            { name: 'Winter', months: ['Dec', 'Jan', 'Feb'], startDate: 404, endDate: 404 },
-            { name: 'Spring', months: ['Mar', 'Apr', 'May'], startDate: 404, endDate: 404 },
-            { name: 'Summer', months: ['Jun', 'Jul', 'Aug'], startDate: 404, endDate: 404 },
-        ]
+    const allSeasons = [
+        { name: 'Autumn', months: ['Sep', 'Oct', 'Nov'], startDate: 23, endDate: 21 },
+        { name: 'Winter', months: ['Dec', 'Jan', 'Feb'], startDate: 404, endDate: 404 },
+        { name: 'Spring', months: ['Mar', 'Apr', 'May'], startDate: 404, endDate: 404 },
+        { name: 'Summer', months: ['Jun', 'Jul', 'Aug'], startDate: 404, endDate: 404 },
+    ]
 
-        let seasonName = '';
-        for (let season of allSeasons) {
-            const isSeason = (season.months.map(month => month === getMonth)) ? true : false;
-            if (isSeason) {
-                seasonName = season.name;
-                break;
-            }
+    let seasonName = '';
+    for (let season of allSeasons) {
+        const isSeason = (season.months.map(month => month === getMonth)) ? true : false;
+        if (isSeason) {
+            seasonName = season.name;
+            break;
         }
+    }
 
-        return seasonName;
-  }
+    return seasonName;
+}
 
 // Button component
 class Button extends React.Component {
     // eslint-disable-next-line
-    constructor (props) {
+    constructor(props) {
         super(props);
     }
 
-    render () {
-        const {text, onClick, styles} = this.props;
+    render() {
+        const { text, onClick, styles } = this.props;
         return (<button onClick={onClick} style={styles}>{text}</button>);
     }
 }
@@ -91,12 +91,12 @@ const summerStyles = {
 // Seasons component
 class Seasons extends React.Component {
     // eslint-disable-next-line
-    constructor (props) {
+    constructor(props) {
         super(props);
     }
 
-    render () {
-        const {seasons} = this.props;
+    render() {
+        const { seasons } = this.props;
         const seasonsFormatted = seasons.map(season => <li key={season}>{season}</li>);
         return seasonsFormatted;
     }
@@ -104,11 +104,11 @@ class Seasons extends React.Component {
 // Header component
 class Header extends React.Component {
     // eslint-disable-next-line
-    constructor (props) {
+    constructor(props) {
         super(props);
     }
 
-    render () {
+    render() {
         const {
             data: {
                 seasons,
@@ -122,7 +122,7 @@ class Header extends React.Component {
                     <h1>{welcome}</h1>
                     <h2>Seasons: </h2>
                     <ul>
-                        <Seasons seasons={seasons}/>
+                        <Seasons seasons={seasons} />
                     </ul>
                 </div>
             </header>
@@ -133,7 +133,7 @@ class Header extends React.Component {
 // Main component
 class Main extends React.Component {
     // eslint-disable-next-line
-    constructor (props) {
+    constructor(props) {
         super(props);
     }
 
@@ -152,10 +152,10 @@ class Main extends React.Component {
                 <div className='main-wrapper'>
                     <p>The date today is {showDate(date)}</p>
                     <p>Therefore the current season is: <b>{currentSeason(date)}</b></p>
-                    <Button text={"autumn"} onClick={autumn} styles={autumnStyles}/>
-                    <Button text={"winter"} onClick={winter} styles={winterStyles}/>
-                    <Button text={"spring"} onClick={spring} styles={springStyles}/>
-                    <Button text={"summer"} onClick={summer} styles={summerStyles}/>
+                    <Button text={"autumn"} onClick={autumn} styles={autumnStyles} />
+                    <Button text={"winter"} onClick={winter} styles={winterStyles} />
+                    <Button text={"spring"} onClick={spring} styles={springStyles} />
+                    <Button text={"summer"} onClick={summer} styles={summerStyles} />
                 </div>
             </main>
         )
@@ -164,13 +164,15 @@ class Main extends React.Component {
 
 // App, Parent component
 class App extends React.Component {
+
     state = {
         autumn: false, // 0
         winter: false, // 0
         spring: false, // 0
         summer: false, // 0
         bgColor: '#E0EAFC',
-        season : 0
+        season: 0,
+
     }
 
     autumn = () => {
@@ -212,11 +214,24 @@ class App extends React.Component {
             bgColor: '#fdb91a'
         })
     }
-    render () {
-        const data = {
-            seasons: ['Autumn', 'Winter', 'Spring', 'Summer'],
-            welcome: 'Season Change Simulator',
+
+    componentDidMount() {
+
+        let seasonName = currentSeason(new Date());
+        console.log(new Date())
+        if (seasonName === 'Autumn') {
+            this.autumn();
         }
+        else if (seasonName === 'Winter') {
+            this.winter();
+        } else if (seasonName === 'Spring') {
+            this.spring();
+        } else if (seasonName === 'Summer') {
+            this.summer();
+        }
+    }
+
+    render() {
         const seasonFunctions = {
             autumn: this.autumn,
             winter: this.winter,
@@ -224,23 +239,14 @@ class App extends React.Component {
             summer: this.summer
         }
         const bgColor = this.state.bgColor;
-
-        // let seasonName = currentSeason(new Date());
-
-        // if (seasonName === 'Autumn') {
-        //     seasonFunctions.autumn();
-        // } else if (seasonName === 'Winter') {
-        //     seasonFunctions.winter();
-        // } else if (seasonName === 'Spring') {
-        //     seasonFunctions.spring();
-        // } else if (seasonName === 'Summer') {
-        //     seasonFunctions.summer();
-        // }
-
+        const data = {
+            seasons: ['Autumn', 'Winter', 'Spring', 'Summer'],
+            welcome: 'Season Change Simulator',
+        }
         return (
-            <div className='app' style={{backgroundColor: bgColor, height: '100vh'}}>
-                <Header data={data}/>
-                <Main seasons={seasonFunctions} date={new Date()}/>
+            <div className='app' style={{ backgroundColor: bgColor, height: '100vh' }}>
+                <Header data={data} />
+                <Main seasons={seasonFunctions} date={new Date()} />
             </div>
         )
     }
@@ -249,4 +255,4 @@ class App extends React.Component {
 
 const rootElement = document.getElementById('root');
 
-ReactDOM.render(<App/>, rootElement);
+ReactDOM.render(<App />, rootElement);
