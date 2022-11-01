@@ -1,17 +1,50 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDOM from 'react-dom';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+class Header extends React.Component {
+  // eslint-disable-next-line
+  constructor (props) {
+    super(props);
+  }
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  render () {
+    const {title, subtitle} = this.props.data;
+    return (
+      <header>
+        <div className='header-wrapper'>
+          <h1>{title}</h1>
+          <h2>{subtitle}</h2>
+          <p>
+            {/* The time is: {updateTime()} */}
+          </p>
+        </div>
+      </header>
+    )
+  }
+}
+
+
+// Parent Coponent, App
+class App extends React.Component {
+  state = {
+    loggedIn: false
+  }
+
+  render () {
+    const data = {
+      title: "This webpage changes color based on time",
+      subtitle: "It's tomato not tomato"
+    }
+
+    return (
+      <div className='app'>
+        <Header data={data}/>
+        {/* <Main/> */}
+      </div>
+    )
+  }
+}
+
+const rootElement = document.getElementById('root');
+
+ReactDOM.render(<App/>, rootElement);
