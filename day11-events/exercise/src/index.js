@@ -9,8 +9,8 @@ class App extends Component {
   }
   // triggered whenever the mouse moves
   handleMouseEnter = (e) => {
-    const xValue = Math.random() * e.clientX;
-    const yValue = Math.random() * e.clientY;
+    const xValue = Math.ceil(Math.random() * e.clientX);
+    const yValue = Math.ceil(Math.random() * e.clientY);
 
     this.setState({
       right: xValue,
