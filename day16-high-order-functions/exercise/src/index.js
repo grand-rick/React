@@ -2,11 +2,11 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
 
-const Input = ({ type, name, id, placeholder, styles }) => {
+const Input = ({ type, name, id, placeholder, style }) => {
   return (
     <div>
       <label htmlFor={id}>{placeholder}: </label>
-      <input type={type} name={name} id={id} placeholder={placeholder} styles={styles}/>
+      <input type={type} name={name} id={id} placeholder={placeholder} style={style}/>
     </div>
   )
 }
@@ -31,7 +31,7 @@ const CustomInputType = (CompParam, type = 'text') => {
     },
     {
       type: 'email',
-      backgroundColor: '#E44D26',
+      backgroundColor: '#0ff',
       color: '#000'
     },
     {
@@ -54,12 +54,12 @@ const CustomInputType = (CompParam, type = 'text') => {
     margin: 3,
     cursor: 'pointer',
     fontSize: '1.25rem',
-    color: color,
-    backgroundColor: backgroundColor
+    color,
+    backgroundColor
   }
 
   return (props) => {
-    return <CompParam {...props} type={type} styles={inputStyles} />
+    return <CompParam {...props} type={type} style={inputStyles} />
   }
 }
 
