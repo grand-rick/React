@@ -1,0 +1,787 @@
+:root {
+    --light-color: #d4e0ff;
+    --theme-color: #009e66;
+    --btn-hover-color: rgba(0, 158, 102, 0.5);
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap');
+
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* Adding All My Section Tag Fixed Padding */
+section {
+    padding: 80px;
+}
+/* Creating Banner Area In CSS */
+.banner {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #111;
+    background-image: url('images/background.png');
+    background-size: cover;
+    background-position:center;
+}
+.banner h2 {
+    font-size: 4.2em;
+    /* color: rgb(168, 166, 166); */
+    color: var(--light-color);
+    font-weight: 300;
+    line-height: 1.5em;
+}
+.banner h2 span {
+    font-size: 1.2em;
+    color: #efefef;
+}
+.btn {
+    border: 1px solid var(--theme-color);
+    position: relative;
+    background: none;
+    display: inline-block;
+    color: #000;
+    margin-top: 4%;
+    padding: 10px 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+    font-size: 18px;
+    transition: 0.8s;
+    -webkit-transition: 0.8s;
+    -moz-transition: 0.8s;
+    -ms-transition: 0.8s;
+    -o-transition: 0.8s;
+    overflow: hidden;
+}
+.btn::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    background: var(--theme-color);
+    z-index: -1;
+    transition: 0.8s;
+    -webkit-transition: 0.8s;
+    -moz-transition: 0.8s;
+    -ms-transition: 0.8s;
+    -o-transition: 0.8s;
+    top: 0;
+    height: 100%;
+}
+.btn:hover {
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 0.4rem 1.4rem 0 var(--btn-hover-color);
+    transform: translateY(-0.1rem);
+    transition: transform 0.3s;
+    -webkit-transform: translateY(-0.1rem);
+    -moz-transform: translateY(-0.1rem);
+    -ms-transform: translateY(-0.1rem);
+    -o-transform: translateY(-0.1rem);
+    -webkit-transition: transform 0.3s;
+    -moz-transition: transform 0.3s;
+    -ms-transition: transform 0.3s;
+    -o-transition: transform 0.3s;
+    background-color: #000;
+}
+.btn:hover::before {
+    height: 0%;
+}
+.abt {
+    border: 4px solid var(--theme-color);
+    color: #fff;
+}
+  /* Creating About Layout */
+  .content{
+    display:flex;
+    justify-content: space-between;
+}
+.heading{
+    width:100%;
+    text-align: center;
+    margin-bottom: 30px;
+    color:#111;
+}
+.heading p{
+    font-style: italic;
+    font-size:14px;
+}
+.heading h2{
+    font-size: 3em;
+    color:var(--theme-color);
+}
+.contentBx{
+    padding-left:40px;
+    text-align: justify;
+    position: relative;
+}
+.contentBx h2{
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+.contentBx h2 span {
+    color: var(--theme-color);
+    font-weight: 700;
+}
+.contentBx h2#hdSkills {
+    margin-left: 35%;
+    margin-top: 10px;
+}
+.contentBx div#skills{
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+}
+.proPic{
+    width:300px;
+    height:350px;
+    border-top-left-radius: 30%;
+    border-bottom-right-radius: 30%;
+}
+.heading.bottom{
+    display:flex;
+    justify-content: space-between;
+    flex-direction:row;
+    align-items: center;
+}
+.btn.round{
+   border-radius:50px;    ;
+   -webkit-border-radius:50px    ;
+   -moz-border-radius:50px    ;
+   -ms-border-radius:50px    ;
+   -o-border-radius:50px    ;
+}
+.info{
+    display:flex;
+    justify-content: space-between;
+}
+.bt{
+    margin-top: 20px;;
+}
+.w50{
+    min-width:25%;
+}
+img{
+    max-width:100%;
+}
+
+
+
+/* Creating Logo and Menu's Header  */
+header {
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:40px 100px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+    transition:0.5s;
+    -webkit-transition:0.5s;
+    -moz-transition:0.5s;
+    -ms-transition:0.5s;
+    -o-transition:0.5s;
+}
+header .logo {
+    color:#fff;
+    font-size:24px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+header ul {
+    position: relative;
+    display: flex;
+}
+header ul li {
+    list-style-type: none;
+    position: relative;
+}
+header ul li a {
+    position: relative;
+    display: inline-block;
+    margin: 0 15px;
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.nav-link {
+    position: relative;
+    overflow: hidden;
+    padding: 5px 0;
+}
+
+.nav-link::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 100%;
+    width: 50%;
+    height: 2px;
+    background: var(--theme-color);
+    transition: 0.5s ease-in-out;
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 100%;
+    width: 50%;
+    height: 2px;
+    background: var(--theme-color);
+    transition: 0.5s ease-in-out;
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+}
+
+.nav-link:hover {
+    color: var(--theme-color);
+    font-weight: bold;
+}
+
+.nav-link:hover::before {
+    right: 0;
+}
+
+.nav-link:hover::after {
+    left: 0;
+}
+
+/* Creating Sticky Header Menu Nav Bar in CSS */
+header.sticky {
+    background: #fff ;
+    padding: 20px 100px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    
+}
+
+header.sticky .logo {
+    color: #111;
+}
+header.sticky ul li a {
+    color: #111;
+}
+
+/* Designing Services Layout in CSS */
+.services {
+    background-color: #111;
+}
+.heading.white p {
+    color: #fff;
+}
+.services .content{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.services .content .servicesBx {
+    color: #fff;
+    background-color: #161616;
+    margin: 10px 15px;
+    padding: 30px 15px;
+    text-align: center;
+    max-width: 360px;
+}
+.services .content .servicesBx:hover {
+    border-bottom: 2px solid var(--theme-color);
+    cursor: pointer;
+}
+.services .content .servicesBx .fa {
+    color: var(--theme-color);
+}
+.services .content .servicesBx h3 {
+    margin-top: 3px;
+}
+/* Creating Work Layout in CSS */
+.work .content{
+    display:flex;
+    justify-content: center;
+    flex-wrap:wrap;
+    flex-direction:row;
+}
+.work .content .workBx{
+    width:500px;
+    padding:20px;
+}
+.work .content .workBx img{
+    max-width:100%;
+    border:1px solid rgba(0,0,0,0.4);
+    cursor:pointer;
+}
+.work .content .workBx img:hover{
+    box-shadow:0 0 20px 5px #ccc;
+    transform:scale(1.058);
+    -webkit-transform:scale(1.058);
+    -moz-transform:scale(1.058);
+    -ms-transform:scale(1.058);
+    -o-transform:scale(1.058);
+    transition:0.3s;
+    -webkit-transition:0.3s;
+    -moz-transition:0.3s;
+    -ms-transition:0.3s;
+    -o-transition:0.3s;
+}
+.work .content .workBx p{
+    text-align:center;
+}
+.work .content .workBx a:link,
+.work .content .workBx a:visited,
+.work .content .workBx a:active{
+    color:#161616;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+
+/* Designing Testimonial Layout in CSS */
+.testimonial {
+    background-color: #111;
+}
+.testimonial .content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.testimonial .content .testimonialBx {
+    background-color: #161616;
+    margin: 20px;
+    padding: 60px 40px;
+    max-width: calc(50% - 40px);
+    border-bottom-left-radius: 20%;
+    border-bottom-right-radius: 20%;
+    cursor: pointer;
+}
+.testimonial .content .testimonialBx p {
+    color: #fff;
+    font-style: italic;
+    font-size: 18px;
+    font-weight: 100;
+    font-family: "Times New Roman", Times, Serif;
+    line-height: 24px;
+}
+.testimonial .content .testimonialBx h3 {
+    color: var(--theme-color);
+    margin-top: 40px;
+    text-align: right;
+    font-weight: 200;
+    line-height: 20px;
+    font-style: italic;
+    line-height: 1.7em;
+    font-size: 20px;
+}
+.testimonial .content .testimonialBx:hover {
+    border-bottom: 2px solid var(--theme-color);
+}
+
+/* Designing  Contact Details Layout in CSS */
+.contact{
+    background:#111;
+}
+
+.formBx{
+    min-width:60%;
+}
+.formBx form{
+    display:flex;
+    flex-direction:column;
+}
+.formBx form h3,
+.contactInfo h3{
+    color:#fff;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.formBx form input,
+.formBx form textarea{
+    margin-bottom: 20px;
+    padding:15px;
+    font-size: 16px;
+    background:transparent;
+    border:none;
+    outline:none;
+    background:#161616;
+    resize:vertical;
+    color:#fff;
+}
+.formBx form input:focus,
+.formBx form textarea:focus{
+    transition:0.5s;
+    -webkit-transition:0.5s;
+    -moz-transition:0.5s;
+    -ms-transition:0.5s;
+    -o-transition:0.5s;
+    border-bottom:1px solid #009e66;
+}
+.formBx form input::placeholder,
+.formBx form textarea::placeholder{
+    color:#999;
+}
+.formBx form input[type="submit"]{
+    background:var(--theme-color);
+    max-width:250px;
+    cursor:pointer;
+    font-weight: 600;
+    letter-spacing: 2px;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+    transition: 0.8s;
+    -webkit-transition: 0.8s;
+    -moz-transition: 0.8s;
+    -ms-transition: 0.8s;
+    -o-transition: 0.8s;
+}
+.formBx form input[type="submit"]:hover {
+    color: #000;
+    cursor: pointer;
+    box-shadow: 0 0.4rem 1.4rem 0 var(--btn-hover-color);
+    transform: translateY(-0.1rem);
+    transition: transform 0.3s;
+    -webkit-transform: translateY(-0.1rem);
+    -moz-transform: translateY(-0.1rem);
+    -ms-transform: translateY(-0.1rem);
+    -o-transform: translateY(-0.1rem);
+    -webkit-transition: transform 0.3s;
+    -moz-transition: transform 0.3s;
+    -ms-transition: transform 0.3s;
+    -o-transition: transform 0.3s;
+}
+.contactInfo{
+    min-width:40%;
+}
+.contactInfo p{
+    color:#999;
+}
+.contactInfoBx{
+    position:relative;
+}
+.contactInfoBx .box{
+    position:relative;
+    padding:20px 0;
+    display:flex;
+}
+.contactInfoBx .box .icon{
+    color:#fff;
+    min-width:40px;
+    padding-top:4px;
+    display:flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 24px;
+}
+.contactInfoBx .box .text{
+    color:#999;
+    margin-left:20px;
+    font-size: 16px;
+    flex-direction: column;
+    font-weight: 300;
+}
+.contactInfoBx .box .text h3{
+    font-weight: 500;
+    color:var(--theme-color);
+    margin-bottom: 0;
+}
+.contactInfoBx .box .text p{
+    font-weight: 300;
+    color:#999;
+}
+.contactInfoBx .boxSocial{
+    display:flex;
+    flex-direction:row;
+    letter-spacing: 15px;
+    padding-left:60px;
+}
+.contactInfoBx .boxSocial .fa{
+    color:var(--theme-color);
+    font-size: 42px;
+    cursor:pointer;
+}
+.boxSocial .icon:hover {
+    cursor: pointer;
+    transform: translateY(-0.29rem);
+    transition: transform 200ms;
+    -webkit-transform: translateY(-0.29rem);
+    -moz-transform: translateY(-0.29rem);
+    -ms-transform: translateY(-0.29rem);
+    -o-transform: translateY(-0.29rem);
+
+    -webkit-transition: transform 200ms;
+    -moz-transition: transform 200ms;
+    -ms-transition: transform 200ms;
+    -o-transition: transform 200ms;
+}
+    /* Designing Footer Layout in CSS */
+footer.copyright {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Designing Scroll to top button */
+.move-top {
+    top: 50vh;
+    opacity:0;
+    right: 5vw;
+    width: 50px;
+    z-index: 99;
+    height: 50px;
+    display: block;
+    position: fixed;
+    transition: all 0.3s ease-in;
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    -ms-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+}
+
+.move-top img {
+    width: 100%;
+    padding: 5px;
+    border-radius: 30%;
+    -webkit-border-radius: 30%;
+    -moz-border-radius: 30%;
+    -ms-border-radius: 30%;
+    -o-border-radius: 30%;
+    background-color: #27ae60;
+}
+
+/* preloader */
+#preloader {
+    background: #000 url("images/loader.gif") no-repeat center;
+    background-size: 45%;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+}
+
+/* Changed font weight of "I'm" */
+#myName > b {
+    font-weight: normal;
+}
+
+/* Active class */
+.active {
+    border-bottom: 5px solid var(--theme-color);
+}
+
+/* Making Responsive Layout */
+@media (max-width: 991px) {
+    header, header.sticky {
+        padding: 20px 50px;
+        z-index: 2;
+    }
+    header .menu {
+        display: none;
+        z-index: 1;
+    }
+    header .menu {
+        position:fixed;
+        background:#fff;
+        display:block;
+        top:76.8px;
+        left:-100%;
+        padding:100px 50px;
+        width:100%;
+        height:100vh;
+        border-top:1px solid rgba(0,0,0,0.2);
+        text-align:center;
+        transition:0.5s;
+        -webkit-transition:0.5s;
+        -moz-transition:0.5s;
+        -ms-transition:0.5s;
+        -o-transition:0.5s;
+    }
+    header .menu.scroll {
+        position: fixed;
+        background-color: #fff;
+        display: block;
+        top: 76.8px;
+        left: 0;
+        transition: 0.5s;
+        padding: 100px 50px;
+        width: 100%;
+        height: 100vh;
+        text-align: center;
+        border-top: 1px solid rgba(0, 0, 0, 0.2);
+    }
+    header ul li a {
+        font-size: 20px;
+        color: #111;
+        font-weight: 400;
+        margin: 10px 0;
+    }
+    .toggle {
+        width: 40px;
+        height: 40px;
+        background-image:url('images/menu.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 30px;
+        cursor: pointer;
+    }
+    .toggle.scroll {
+        width: 40px;
+        height: 40px;
+        background-image:url('images/close.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 25px;
+        cursor: pointer;
+    }
+    header.sticky .toggle {
+        filter: invert(1);
+        -webkit-filter: invert(1);
+        -moz-filter: invert(1);
+        -o-filter: invert(1);
+    }
+
+    section {
+        padding: 100px 30px;
+    }
+    .banner {
+        padding: 150px 50px 100px;
+    }
+    .banner h2 {
+        font-size: 1.5em;
+    }
+    .banner h3 {
+        font-size: 1em;
+    }
+    .textBx {
+        position: relative;
+        top: 100px;
+    }
+    .btn {
+        margin-top: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 50px;
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        -o-border-radius: 50px;
+    }
+    .content {
+        flex-direction: column;
+    }
+    .contentBx{
+        padding:0;
+    }
+    .content .w50 img{
+        display:block;
+        margin:0 auto 30px auto;
+    }
+    .contentBx h2 {
+        font-size: 20px;
+        font-weight: 300;
+    }
+    .contentBx h3 {
+        font-size: 20px;
+    }
+    .heading h2 {
+        font-size: 24px;
+    }
+    .contentBx h3{
+        font-size: 20px;
+    }
+    .contentBx h2{
+        font-size: 20px;
+        font-weight: 300;
+    }
+    .services .content .servicesBx{
+        margin:10px;
+    }
+    .contactInfo{
+        margin:10px 0;
+    }
+    .active {
+        border: none;
+        background-color: var(--theme-color);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .banner h2 {
+        font-size: 3.2em;
+        color: rgb(168, 166, 166);
+        font-weight: 300;
+        line-height: 1.5em;
+    }
+    .banner h2 span {
+        font-size: 1.2em;
+        color: #efefef;
+    }
+}
+
+@media (max-width: 768px){
+    .testimonial .content .testimonialBx{
+        max-width: calc(100% - 20px);
+        padding: 40px 20px;
+        margin: 30px;
+    }
+    .heading.bottom{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction:row;
+    }
+    .banner h2 {
+        font-size: 2.2em;
+        color: rgb(168, 166, 166);
+        font-weight: 300;
+        line-height: 1.5em;
+    }
+    .banner h2 span {
+        font-size: 1.2em;
+        color: #efefef;
+    }
+}
+
+@media (max-width: 600px){
+    .testimonial .content .testimonialBx{
+        max-width: calc(100% - 20px);
+        padding: 40px 20px;
+        margin: 30px;
+    }
+    .heading.bottom{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction:column;
+    }
+    .contentBx span {
+        display: inline-block;
+    }
+    .contentBx div#skills{
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+    }
+    .contentBx div#skills .secondRow {
+        margin-right: -5rem;
+    }
+}
+
