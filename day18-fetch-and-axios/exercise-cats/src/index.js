@@ -13,16 +13,27 @@ class App extends Component {
     data : [],
     totalWeight: 0,
     totalLifeSpan: 0,
-    countries: {}
+    countries: {},
+    highestCountry: {
+      countryName: '',
+      cats: 0
+    }
+  }
+
+  componentDidMount() {
+    this.fetchAPIData();
+    console.log(this.state);
   }
 
   fetchAPIData = async () => {
+    let totalWeight = 0;
+    let totalLifeSpan = 0;
+    let mostNumCats = 0;
+
     try {
       const url = 'https://api.thecatapi.com/v1/breeds';
       const response = await axios.get(url);
       const data = await response.data;
-
-      // console.log(data[2]);
 
       this.setState({
         data,
@@ -30,12 +41,14 @@ class App extends Component {
 
       for (let cat of data) {
         /* Splitting the weight of the cat into two parts, the minimum and maximum. Then it is
-                adding the two together and dividing by the length of the splitWeight array. */
+        adding the two together and dividing by the length of the splitWeight array. */
         const splitWeight = cat.weight.metric.split("-");
         const minWeight = +splitWeight[0];
         const maxWeight = +splitWeight[1];
   
         const averageWeight = (minWeight + maxWeight) / splitWeight.length;
+
+        totalWeight += averageWeight;
         
         /* Splitting the life span of the cat into two parts, the minimum and maximum. Then it is
         adding the two together and dividing by the length of the splitLifeSpan array. */
@@ -45,39 +58,55 @@ class App extends Component {
   
         const averageLifeSpan = (minLifeSpan + maxLifeSpan) / splitLifeSpan.length;
 
-        let countryCode = this.state.countries[cat.country_code];
+        totalLifeSpan += averageLifeSpan;
 
-        if (countryCode !== true) {
+        /* Checking if the country code is already in the countries object. If it is not, it will add
+        it to the object and set the value to 1. If it is already in the object, it will add 1 to
+        the value. */
+        const countryCode = cat.country_code;
+
+        const {countries} = this.state;
+        const isRecorded = (countries[countryCode]) ? true : false;
+
+        if (isRecorded === false) {
+          const updatedCountries = Object.assign(countries, {[countryCode]: 1});
           this.setState({
-            countries: {
-              [countryCode]: 1
-            }
+            countries: updatedCountries
           })
         } else {
+          countries[countryCode]++;
           this.setState({
-            countries: {
-              [countryCode]: this.state.countries[countryCode] + 1
-            }
+            countries,
           })
-        }
+          
 
-        this.setState({
-          totalWeight: this.state.totalWeight + averageWeight,
-          totalLifeSpan: this.state.totalLifeSpan + averageLifeSpan,
-        })
+            if (mostNumCats === 0) {
+              mostNumCats = countries[countryCode];
+            } else {
+              mostNumCats = (countries[countryCode] >= mostNumCats) ? countries[countryCode] : mostNumCats;
+            }
+            this.setState({
+              highestCountry: {
+                countryName: [countryCode],
+                cats: countries[countryCode]
+              }
+            })
+        }
       }
+    
+      this.setState({
+        totalWeight,
+        totalLifeSpan
+      })
+
     } catch (err) {
       console.log(err);
     }
-  }
-
-  componentDidMount() {
-    this.fetchAPIData();
-    console.log(this.state);
+    
   }
 
   render() {
-    const {data, totalWeight, totalLifeSpan} = this.state;
+    const {data, totalWeight, totalLifeSpan, highestCountry: {countryName, cats}} = this.state;
     const averageWeight = (totalWeight / data.length).toFixed(3);
     const averageLifeSpan = (totalLifeSpan / data.length).toFixed(3);
     return (
@@ -85,6 +114,7 @@ class App extends Component {
         <h1>Cat's Lifespan</h1>
         <h2>There are {data.length} breeds of cats.</h2>
         <p>On average a cat can weigh about {averageWeight} kgs, and live for {averageLifeSpan} years.</p>
+        <p>Country with the most number of cats is {countryName}, with {cats} cats in total.</p>
       </div>
     )
   }
