@@ -144,8 +144,8 @@ class App extends Component {
       randomCat
     })
 
-    console.log(this.state.randomCat);
-    console.log(this.state.randomCat.name);
+    // console.log(this.state.randomCat);
+    // console.log(this.state.randomCat.name);
   }
 
   render() {
