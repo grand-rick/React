@@ -151,7 +151,7 @@ class App extends Component {
   render() {
     const {data, totalWeight, totalLifeSpan, highestCountry: {countryName, cats}, randomCat} = this.state;
     const averageWeight = (totalWeight / data.length).toFixed(3);
-    const averageLifeSpan = (totalLifeSpan / data.length).toFixed(3);
+    const averageLifeSpan = (totalLifeSpan / data.length).toFixed(2);
     return (
       <div className='App'>
         <div className='header'>
@@ -166,7 +166,7 @@ class App extends Component {
             <p>{randomCat.description}</p>
             <p>Origin: {randomCat.origin}</p>
             <p>Find more about {randomCat.name} at 
-              <a href={randomCat.wikipedia_url}> {randomCat.name}</a>
+              <a href={randomCat.wikipedia_url} rel='noreferrer' target='_blank'> {randomCat.name}</a>
             </p>
             <img src={randomCat.url} alt={randomCat.name}/>
           </div>
