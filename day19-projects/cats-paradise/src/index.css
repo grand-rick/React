@@ -1,0 +1,17 @@
+:root {
+  font-size: 62.5%;
+  --theme-color: #3f2b96;
+}
+
+body {
+  margin: 0;
+  font-family: "Roboto Slab", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--theme-color);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
